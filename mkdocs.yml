@@ -1,0 +1,56 @@
+site_name: Dopus
+
+nav:
+  - Introduction: README.md
+  - Getting Started: guides/getting_started.md
+  - Tutorials:
+    - TOOO List Agent: guides/todo_list.md
+    - Using Pydantic Models: guides/using_pydantic_models.md
+  # - Contributing: CONTRIBUTING.md
+  - API Reference: api.md
+
+theme:
+  name: 'material'
+  palette:
+    scheme: slate
+    primary: black
+    accent: light blue
+  features:
+    - content.code.copy
+    - content.code.annotate
+
+extra:
+  generator: false
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.details
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_root_heading: true
+            show_source: false
+            heading_level: 3
+            members_order: source
+            separate_signature: true
+            show_signature_annotations: true
+            docstring_options:
+              ignore_init_summary: true
+              show_if_no_docstring: true
+              show_bases: true
+              show_object_full_path: false
+              filters:
+                - "!^_"
+                - "!^__"
+            docstring_style: google
