@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.35">
     
     
       
@@ -379,6 +379,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#dopus.core.Agent.get_actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_actions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dopus.core.Agent.reset" class="md-nav__link">
     <span class="md-ellipsis">
       reset
@@ -406,9 +415,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dopus.core.Agent.on" class="md-nav__link">
+  <a href="#dopus.core.Agent.on_tool_use" class="md-nav__link">
     <span class="md-ellipsis">
-      on
+      on_tool_use
     </span>
   </a>
   
@@ -499,6 +508,17 @@ where tools may be called upon dynamically.</p>
       </thead>
       <tbody>
           <tr class="doc-section-item">
+            <td><code><span title="dopus.core.Agent.provider">provider</span></code></td>
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="dopus.core.Provider" href="../provider/#dopus.core.Provider">Provider</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The language model provider used by the agent.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
             <td><code><span title="dopus.core.Agent.name">name</span></code></td>
             <td>
                   <code>str</code>
@@ -506,17 +526,6 @@ where tools may be called upon dynamically.</p>
             <td>
               <div class="doc-md-description">
                 <p>The name of the agent.</p>
-              </div>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td><code><span title="dopus.core.Agent.provider">provider</span></code></td>
-            <td>
-                  <code><a class="autorefs autorefs-internal" title="dopus.core.Provider" href="../provider/#dopus.core.Provider">Provider</a></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>The language model provider used by the agent. </p>
               </div>
             </td>
           </tr>
@@ -625,6 +634,25 @@ where tools may be called upon dynamically.</p>
           </tr>
       </tbody>
     </table>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="dopus.core.Agent.get_actions" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">get_actions</span>
+
+
+</h4>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">get_actions</span><span class="p">()</span>
+</span></code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Get the list of actions the agent has taken</p>
 
     </div>
 
@@ -771,17 +799,17 @@ If a message is provided, it appends it to the conversation.</p>
 <div class="doc doc-object doc-function">
 
 
-<h4 id="dopus.core.Agent.on" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">on</span>
+<h4 id="dopus.core.Agent.on_tool_use" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">on_tool_use</span>
 
 
 </h4>
-<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">on</span><span class="p">(</span><span class="n">tool</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">on_tool_use</span><span class="p">(</span><span class="n">tool</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
 </span></code></pre></div>
 
     <div class="doc doc-contents ">
 
-        <p>Registers a callback function <code>func</code> to be triggered for a specific tool.</p>
+        <p>Registers a callback function to be triggered when a tool is used.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -890,8 +918,7 @@ If a message is provided, it appends it to the conversation.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Adds a list of tools to the tool manager and registers tool configuration functions
-where available.</p>
+        <p>Adds a list of tools to the tool manager</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -943,7 +970,7 @@ where available.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Abstract method to provide the agent's prompt or message. 
+        <p>Abstract method to provide the agent's system prompt or message. 
 Must be implemented by subclasses.</p>
 
 
@@ -1021,7 +1048,7 @@ Must be implemented by subclasses.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>

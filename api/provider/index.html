@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.35">
     
     
       
@@ -379,51 +379,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dopus.core.Provider.on_stop" class="md-nav__link">
-    <span class="md-ellipsis">
-      on_stop
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dopus.core.Provider.format_messages" class="md-nav__link">
-    <span class="md-ellipsis">
-      format_messages
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dopus.core.Provider.create_tool" class="md-nav__link">
-    <span class="md-ellipsis">
-      create_tool
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dopus.core.Provider.create_tool_call_message" class="md-nav__link">
-    <span class="md-ellipsis">
-      create_tool_call_message
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dopus.core.Provider.create_tool_result_message" class="md-nav__link">
-    <span class="md-ellipsis">
-      create_tool_result_message
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#dopus.core.Provider.request" class="md-nav__link">
     <span class="md-ellipsis">
       request
@@ -463,6 +418,24 @@
   <a href="#dopus.core.Provider.get_tool_calls" class="md-nav__link">
     <span class="md-ellipsis">
       get_tool_calls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dopus.core.Provider.on_stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      on_stop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dopus.core.Provider.format_messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      format_messages
     </span>
   </a>
   
@@ -509,6 +482,37 @@
               Bases: <code><span title="abc.ABC">ABC</span></code></p>
 
 
+        <p>Abstract base class to manage requests and responses to LLM providers.
+Core responsibilities:
+    - transforming Convo messages into the format the LLM expects 
+    - transforming tools into the correct format for making the API request
+    - extracting data from the response of the API call</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="dopus.core.Provider.__messages">__messages</span></code></td>
+            <td>
+                  <code><span title="typing.List">List</span>[<span title="typing.Dict">Dict</span>[str, <span title="typing.Any">Any</span>]]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of messages.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
 
 
 
@@ -544,126 +548,6 @@
 <div class="doc doc-object doc-function">
 
 
-<h4 id="dopus.core.Provider.on_stop" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">on_stop</span>
-
-
-</h4>
-<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">on_stop</span><span class="p">(</span><span class="n">convo</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
-</span></code></pre></div>
-
-    <div class="doc doc-contents ">
-
-        <p>Handle the stop event.</p>
-<p>:param convo: The conversation object.
-:param result: Optional result to be processed.</p>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h4 id="dopus.core.Provider.format_messages" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">format_messages</span>
-
-
-</h4>
-<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">format_messages</span><span class="p">(</span><span class="n">messages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span>
-</span></code></pre></div>
-
-    <div class="doc doc-contents ">
-
-        <p>Format a list of messages.</p>
-<p>:param messages: List of message dictionaries.
-:return: List of formatted message dictionaries.</p>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h4 id="dopus.core.Provider.create_tool" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">create_tool</span>
-
-
-  <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-abstractmethod"><code>abstractmethod</code></small>
-  </span>
-
-</h4>
-<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">create_tool</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">parameters</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span>
-</span></code></pre></div>
-
-    <div class="doc doc-contents ">
-
-        <p>Create a tool.</p>
-<p>:param name: Name of the tool.
-:param description: Description of the tool.
-:param parameters: Parameters for the tool.
-:param required: List of required parameters.
-:return: The created tool.</p>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h4 id="dopus.core.Provider.create_tool_call_message" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">create_tool_call_message</span>
-
-
-  <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-abstractmethod"><code>abstractmethod</code></small>
-  </span>
-
-</h4>
-<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">create_tool_call_message</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
-</span></code></pre></div>
-
-    <div class="doc doc-contents ">
-
-        <p>Create a tool call message.</p>
-<p>:param message: The message dictionary.
-:return: The formatted tool call message dictionary.</p>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h4 id="dopus.core.Provider.create_tool_result_message" class="doc doc-heading">
-            <span class="doc doc-object-name doc-function-name">create_tool_result_message</span>
-
-
-  <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-abstractmethod"><code>abstractmethod</code></small>
-  </span>
-
-</h4>
-<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">create_tool_result_message</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
-</span></code></pre></div>
-
-    <div class="doc doc-contents ">
-
-        <p>Create a tool result message.</p>
-<p>:param message: The message dictionary.
-:return: The formatted tool result message dictionary.</p>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
 <h4 id="dopus.core.Provider.request" class="doc doc-heading">
             <span class="doc doc-object-name doc-function-name">request</span>
 
@@ -678,7 +562,7 @@
 
     <div class="doc doc-contents ">
 
-        <p>Make a request.</p>
+        <p>Make the completion request to the llm provider</p>
 <p>:param messages: List of message dictionaries.
 :param registry: The registry object.
 :param tools: Optional list of tools.
@@ -793,6 +677,48 @@
 
 </div>
 
+<div class="doc doc-object doc-function">
+
+
+<h4 id="dopus.core.Provider.on_stop" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">on_stop</span>
+
+
+</h4>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">on_stop</span><span class="p">(</span><span class="n">convo</span><span class="p">:</span> <span class="n">Convo</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</span></code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Handle when the agentic loop stops.</p>
+<p>:param convo: The conversation object.
+:param result: Optional result to be processed.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="dopus.core.Provider.format_messages" class="doc doc-heading">
+            <span class="doc doc-object-name doc-function-name">format_messages</span>
+
+
+</h4>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">format_messages</span><span class="p">(</span><span class="n">messages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span>
+</span></code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Format a list of messages.</p>
+<p>:param messages: List of message dictionaries.
+:return: List of formatted message dictionaries.</p>
+
+    </div>
+
+</div>
+
 
 
   </div>
@@ -841,7 +767,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
