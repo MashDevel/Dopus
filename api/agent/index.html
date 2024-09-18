@@ -510,13 +510,13 @@ where tools may be called upon dynamically.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code><span title="dopus.core.Agent.llm">llm</span></code></td>
+            <td><code><span title="dopus.core.Agent.provider">provider</span></code></td>
             <td>
                   <code><a class="autorefs autorefs-internal" title="dopus.core.Provider" href="../provider/#dopus.core.Provider">Provider</a></code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>The language model instance used by the agent (defaults to <code>default_inference_provider</code>).</p>
+                <p>The language model provider used by the agent. </p>
               </div>
             </td>
           </tr>
@@ -577,7 +577,7 @@ where tools may be called upon dynamically.</p>
 
 
 </h4>
-<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="fm">__init__</span><span class="p">(</span><span class="nf">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Agent&#39;</span><span class="p">,</span> <span class="n">llm</span><span class="p">:</span> <span class="n">Provider</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">convo</span><span class="p">:</span> <span class="n">Convo</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">registry</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">tool_manager</span><span class="p">:</span> <span class="n">ToolRunner</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="fm">__init__</span><span class="p">(</span><span class="nf">provider</span><span class="p">:</span> <span class="n">Provider</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Agent&#39;</span><span class="p">,</span> <span class="n">convo</span><span class="p">:</span> <span class="n">Convo</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">registry</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">tool_manager</span><span class="p">:</span> <span class="n">ToolRunner</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
 </span></code></pre></div>
 
     <div class="doc doc-contents ">
@@ -610,17 +610,17 @@ where tools may be called upon dynamically.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>llm</code></td>
+            <td><code>provider</code></td>
             <td>
                   <code><a class="autorefs autorefs-internal" title="dopus.core.Provider" href="../provider/#dopus.core.Provider">Provider</a></code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Optional language model instance (if None, defaults to <code>default_inference_provider</code>).</p>
+                <p>language model provider instance.</p>
               </div>
             </td>
             <td>
-                  <code>None</code>
+                <em>required</em>
             </td>
           </tr>
       </tbody>
