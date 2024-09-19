@@ -60,7 +60,8 @@ def _translate_type(param_name, param_type, param_description):
                 "type": "object",
                 "properties": properties,
                 "required": required,
-                "description": param_description
+                "description": param_description,
+                "additionalProperties": False,
             }
     if hasattr(param_type, '__origin__') and param_type.__origin__ in [list, List]:
         return {
