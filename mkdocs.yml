@@ -9,6 +9,9 @@ nav:
   # - Contributing: CONTRIBUTING.md
   - API Reference: api.md
 
+repo_name: Dopus
+repo_url: https://github.com/MashDevel/Dopus
+
 theme:
   name: 'material'
   palette:
