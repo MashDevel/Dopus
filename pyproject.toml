@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dopus"
-version = "0.0.2"
+version = "v202409201709"
 description = "A lightweight tool-first framework for AI agent application development"
 authors = ["Mike Ashcroft"]
 license = "MIT"

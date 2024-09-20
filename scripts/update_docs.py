@@ -105,7 +105,7 @@ def get_tool_decorator(module) -> List[Tuple[str, callable]]:
     ]
 
 
-if __name__ == "__main__":
+def update_docs():
     MODULE_NAME = "dopus.core"
     try:
         update_module_docs(MODULE_NAME)
@@ -113,3 +113,6 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"An error occurred while updating documentation: {e}", file=sys.stderr)
         sys.exit(1)
+
+if __name__ == "__main__":
+    update_docs()
