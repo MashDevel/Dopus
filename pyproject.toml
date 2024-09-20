@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "dopus"
-version = "0.0.1"
-description = "Minimal building blocks for agentic applications"
+version = "0.0.2"
+description = "A lightweight tool-first framework for AI agent application development"
 authors = ["Mike Ashcroft"]
 license = "MIT"
 readme = "docs/README.md"

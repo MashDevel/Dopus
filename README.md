@@ -1,12 +1,8 @@
 # Dopus
 
-Minimal easy-to-use framework for creating agentic applications.
+A lightweight tool-first framework for AI agent application development. Create an `Agent` class and decorate your tool functions with `@tool`. It just works.
 
-## Overview
-
-Dopus is a lightweight framework for AI agent application development. It contains simple abstractions that enable you to quickly create agent classes and it's functions as tools. 
-
-Dopus is designed for building AI agents and their tools on top of existing LLM providers. It doesn't include any agents or tools out of the box.
+Dopus is designed for building AI agents and their tools on top of existing LLM providers. In the spirit of being lightweight, it doesn't include any agents or tools out of the box.
 
 ## Getting Started
 
