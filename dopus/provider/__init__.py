@@ -18,5 +18,11 @@ class LazyLoader:
         class_ref = self._load()
         return class_ref(*args, **kwargs)
 
+    def get_class(self):
+        """
+        Retrieve the actual class without instantiating it.
+        """
+        return self._load()
+
 OpenAI = LazyLoader('dopus.provider.open_ai', 'OpenAI')
 Anthropic = LazyLoader('dopus.provider.anthropic', 'Anthropic')

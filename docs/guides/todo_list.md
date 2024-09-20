@@ -43,7 +43,7 @@ class TodoAgent(Agent):
         # fake todos
         self.todos = [
             {"todo": "Buy groceries", "completed": False},
-            {"todo": "Wash dishes", "completed": False}
+            {"todo": "Wash dishes", "completed": False},
             {"todo": "Finish project report", "completed": False}
         ]
 ```
@@ -94,7 +94,7 @@ class TodoAgent(Agent):
     ```
      We are telling the LLM that the tool call was successful, and the todo has been added to the list.
 
-Let's give the agent two more tools. A `send_message` tool so the agent to communitcate with the user and a `wait` tool to break out of the **agentic loop**.
+Let's give the agent two more tools. A `send_message` tool so the agent can communitcate with the user and a `wait` tool to break out of the **agentic loop**.
 
 ```python
 class TodoAgent(Agent):
@@ -192,7 +192,7 @@ def complete_todo(self, todo_number: int):
         todo_number (int): The number of the todo to mark as completed
     """
     if not self._is_valid_todo_number(todo_number):
-        return self._print_message("Error: Invalid todo number.")
+        return "Error: Invalid todo number."
     
     todo = self.todos[todo_number - 1]
     todo["completed"] = True
@@ -304,7 +304,7 @@ class TodoAgent(Agent):
             todo_number (int): The number of the todo to mark as completed
         """
         if not self._is_valid_todo_number(todo_number):
-            return self._print_message("Error: Invalid todo number.")
+            return "Error: Invalid todo number."
 
         todo = self.todos[todo_number - 1]
         todo["completed"] = True

@@ -16,7 +16,7 @@ class Agent(ABC):
         provider (Provider): The language model provider used by the agent.
         name (str): The name of the agent.
         convo (Convo): Conversation handler that manages the dialogue context.
-        registry: A registry of tools that can be utilized by the agent.
+        registry (dict): A registry of tools that can be utilized by the agent.
         tool_manager (ToolRunner): Manager that handles tool execution and lifecycle events.
     """
     
@@ -26,7 +26,7 @@ class Agent(ABC):
         
         Args:
             name (str): Name of the agent.
-            provider: language model provider instance.
+            provider (Provider): language model provider instance.
         """
         self.__name = name
         self.__provider = provider
@@ -82,7 +82,7 @@ class Agent(ABC):
         
         Args:
             tool (str): Name of the tool.
-            func: Function to be called when the tool is triggered.
+            func (function): Function to be called when the tool is triggered.
         """
         self.__tool_manager.on(tool, func)
 

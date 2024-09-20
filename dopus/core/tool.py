@@ -2,6 +2,7 @@ import inspect
 from .tool_registry import tool_registry
 from pydantic import BaseModel
 from enum import Enum
+from .. import logger
 
 def __store_tool(name, description, parameters=None, required=None, function=None):
     return {
@@ -36,7 +37,7 @@ def _parse_docstring_args(docstring, keyword="Args"):
                             param_name = param_name_type.strip()
                         param_descriptions[param_name] = param_desc.strip()
                 except ValueError as e:
-                    print(f"Error parsing parameter description: {stripped_line}. Error: {e}")
+                    logger(f"Error parsing parameter description: {stripped_line}. Error: {e}")
     return param_descriptions
 
 def _translate_type(param_name, param_type, param_description): 
